@@ -35,7 +35,7 @@ Route::put ('zoos/{zoo}','ZoosController@update')->name('zoos.update');
 
 Route::delete('zoos/{zoo}','ZoosController@delete')->name('zoos.delete');
 
-
+Route::get('species','SpeciesController@index')->name('species.index');
 
 
 
