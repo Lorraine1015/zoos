@@ -52,4 +52,9 @@ class ZoosController extends Controller
         $zoo->save();
         return redirect()->route('zoos.show',['zoo'=>$zoo]);
     }
+
+    function delete(Request $req,Zoo $zoo){
+        $zoo->delete();
+        return redirect()->route('zoos.index');
+    }
 }

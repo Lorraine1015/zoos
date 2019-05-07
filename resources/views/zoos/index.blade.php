@@ -39,6 +39,10 @@
                     <td>{{ $zoo->annual_budget }}</td>
                     <td>
                     <a href="{{route('zoos.edit',['zoo'=>$zoo]) }}">Editar </a>
+                    <form method ="POST" action="{{route('zoos.delete',['zoo'=>$zoo]) }}">
+                    @csrf 
+                    {{ method_field('DELETE') }}
+                    <input type="submit" value="Eliminar">
                     </td>
                 </tr>
             @endforeach
