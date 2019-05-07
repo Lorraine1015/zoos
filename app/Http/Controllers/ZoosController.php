@@ -35,6 +35,21 @@ class ZoosController extends Controller
         $zoo->tamaño=$tamaño;
         $zoo->presupuesto=$presupuesto;
         $zoo->save();
+        
         return redirect()->route('zoos.index');
+    }
+
+    function edit(Request $req,Zoo $zoo){
+        return view('zoos.edit',['zoo'=>$zoo]);
+    }
+
+    function update(Request $req,Zoo $zoo){
+        $zoo->name=$req->input('nombre');
+        $zoo->city=$req->input('ciudad');
+        $zoo->country=$req->input('pais');
+        $zoo->size=$req->input('tamaño');
+        $zoo->annual_budget=$req->input('presupuesto');
+        $zoo->save();
+        return redirect()->route('zoos.show',['zoo'=>$zoo]);
     }
 }
