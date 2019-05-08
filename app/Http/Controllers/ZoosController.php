@@ -29,11 +29,11 @@ class ZoosController extends Controller
         $pre = $req->input('presupuesto');
         
         $zoo=new \App\Zoo;
-        $zoo->nombre=$nombre;
-        $zoo->ciudad=$ciudad;
-        $zoo->pais=$pais;
-        $zoo->tamaño=$tamaño;
-        $zoo->presupuesto=$presupuesto;
+        $zoo->name=$n;
+        $zoo->city=$c;
+        $zoo->country=$p;
+        $zoo->size=$t;
+        $zoo->annual_budget=$pre;
         $zoo->save();
         
         return redirect()->route('zoos.index');

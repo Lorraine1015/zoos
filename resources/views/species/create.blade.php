@@ -17,7 +17,7 @@
         <p> Family </p>
         <input type="text" name="familia" value="">
         <p> Peligro de extincion </p>
-        <input type="boolean" name="peligro" value="Yes">
+        <input type="boolean" name="peligro" value="">
         <p> </p>
         <input type="submit">
     </form>

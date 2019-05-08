@@ -21,6 +21,7 @@ Route::get('registro',
 Route::get('pruebas', 
     'RegistroController@pruebas');
 
+    //RUTAS DE ZOOS
 Route::get('zoos','ZoosController@index')->name('zoos.index');
 
 Route::get('zoos/create','ZoosController@create')->name ('zoos.create');
@@ -35,8 +36,20 @@ Route::put ('zoos/{zoo}','ZoosController@update')->name('zoos.update');
 
 Route::delete('zoos/{zoo}','ZoosController@delete')->name('zoos.delete');
 
+//RUTAS DE SPECIES
+
 Route::get('species','SpeciesController@index')->name('species.index');
 
+Route::get('species/create','SpeciesController@create')->name ('species.create');
 
+Route::get('species/{zoo}/edit','SpeciesController@edit')->name('species.edit');//ruta para editar el registro
+
+Route::get ('species/{zoo}','SpeciesController@show')->name('species.show');//{variable que manda a llamar}
+
+Route::post('species','SpeciesController@store')->name ('species.store');
+
+Route::put ('species/{zoo}','SpeciesController@update')->name('species.update');
+
+Route::delete('species/{zoo}','SpeciesController@delete')->name('species.delete');
 
 
