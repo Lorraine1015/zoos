@@ -1,0 +1,2 @@
+{{ $species->id }}
+{{ $species->name }}
