@@ -42,6 +42,11 @@
                     @csrf 
                     {{ method_field('DELETE') }}
                     <input type="submit" value="Eliminar">
+                    </form>
+                    <a href ="#">
+                        Modificar especies
+                        /zoos/{zoo}/species/edit 
+                    </a>
                     </td>
                 </tr>
             @endforeach

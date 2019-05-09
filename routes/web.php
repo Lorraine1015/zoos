@@ -30,6 +30,10 @@ Route::get('zoos/{zoo}/edit','ZoosController@edit')->name('zoos.edit');//ruta pa
 
 Route::get ('zoos/{zoo}','ZoosController@show')->name('zoos.show');//{variable que manda a llamar}
 
+Route::get('zoos/{zoo}/species/edit','SpeciesZoosController@edit')->name('zoos.species.edit');
+
+Route::put('zoos/{zoo}/species/update','SpeciesZoosController@update')->name('zoos.species.update');
+
 Route::post('zoos','ZoosController@store')->name ('zoos.store');
 
 Route::put ('zoos/{zoo}','ZoosController@update')->name('zoos.update');
