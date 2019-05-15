@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -17,12 +16,11 @@ class CreateSpeciesZooTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('species_id');
             $table->unsignedBigInteger('zoo_id');
-            $table->foreign('zoo_id')->references('id')->on('zoos');
-            $table->foreign('species_id')->references('id')->on('species');
             $table->timestamps();
+            $table->foreign('species_id')->references('id')->on('species');
+            $table->foreign('zoo_id')->references('id')->on('zoos');
         });
     }
-
     /**
      * Reverse the migrations.
      *

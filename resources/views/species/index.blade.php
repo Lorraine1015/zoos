@@ -7,7 +7,7 @@
     <meta name="author" content="">
 </head>
 <body>
-    <h1>Species</h1>
+    <h1>Especies</h1>
     <a href="{{ route('species.create') }}">
     Crear una nueva especie
     </a>
@@ -27,22 +27,24 @@
                 <tr>
                     <td>
                         
-                        <a href="{{route('species.show',['species'=>$specie]) }}">
-                    {{ $species->id }}
+                        <a href="{{route('species.show',['species'=>$item]) }}">
+                            {{ $item->id }}
                         </a>
                     </td>
-                    <td>{{ $species->vulgar_name }}</td>
-                    <td>{{ $species->scientific_name }}</td>
-                    <td>{{ $species->family}}</td>
-                    <td>{{ $species->is_on_danger }}</td>
+                    <td>{{ $item->vulgar_name }}</td>
+                    <td>{{ $item->scientific_name }}</td>
+                    <td>{{ $item->family}}</td>
+                    <td>{{ $item->is_on_danger }}</td>
                     
                     <td>
-                    <a href="{{route('species.edit',['species'=>$specie]) }}">Editar </a>
-                    <form method ="POST" action="{{route('species.delete',['species'=>$specie]) }}">
-                    @csrf 
-                    {{ method_field('DELETE') }}
-                    <input type="submit" value="Eliminar">
-                    </form>
+                        <a href="{{route('species.edit',['species'=>$item]) }}">
+                        Editar 
+                        </a>
+                        <form method ="POST" action="{{route('species.delete',['species'=>$item]) }}">
+                            @csrf 
+                            {{ method_field('DELETE') }}
+                            <input type="submit" value="Eliminar">
+                        </form>
                     <a href ="#">
                         Modificar especies
                         /zoos/{zoo}/species/edit 

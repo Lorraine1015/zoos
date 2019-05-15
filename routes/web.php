@@ -21,7 +21,13 @@ Route::get('registro',
 Route::get('pruebas', 
     'RegistroController@pruebas');
 
-    //RUTAS DE ZOOS
+//RUTAS DE ANIMALES
+Route::get('animals','AnimalsController@index')->name('animals.index');
+  
+Route::get('animals/create', 'AnimalsController@create')->name('animals.create');
+
+Route::post('animals', 'AnimalsController@store')->name('animals.store');
+//RUTAS DE ZOOS
 Route::get('zoos','ZoosController@index')->name('zoos.index');
 
 Route::get('zoos/create','ZoosController@create')->name ('zoos.create');
@@ -30,9 +36,9 @@ Route::get('zoos/{zoo}/edit','ZoosController@edit')->name('zoos.edit');//ruta pa
 
 Route::get ('zoos/{zoo}','ZoosController@show')->name('zoos.show');//{variable que manda a llamar}
 
-Route::get('zoos/{zoo}/species/edit','SpeciesZoosController@edit')->name('zoos.species.edit');
+Route::get('zoos/{zoo}/species/edit', 'SpeciesZoosController@edit')->name('zoos.species.edit');
 
-Route::put('zoos/{zoo}/species/update','SpeciesZoosController@update')->name('zoos.species.update');
+Route::put('zoos/{zoo}/species/update', 'SpeciesZoosController@update')->name('zoos.species.update');
 
 Route::post('zoos','ZoosController@store')->name ('zoos.store');
 
@@ -46,14 +52,14 @@ Route::get('species','SpeciesController@index')->name('species.index');
 
 Route::get('species/create','SpeciesController@create')->name ('species.create');
 
-Route::get('species/{zoo}/edit','SpeciesController@edit')->name('species.edit');//ruta para editar el registro
+Route::get('species/{species}/edit','SpeciesController@edit')->name('species.edit');//ruta para editar el registro
 
-Route::get ('species/{zoo}','SpeciesController@show')->name('species.show');//{variable que manda a llamar}
+Route::get ('species/{species}','SpeciesController@show')->name('species.show');//{variable que manda a llamar}
 
 Route::post('species','SpeciesController@store')->name ('species.store');
 
-Route::put ('species/{zoo}','SpeciesController@update')->name('species.update');
+Route::put ('species/{species}','SpeciesController@update')->name('species.update');
 
-Route::delete('species/{zoo}','SpeciesController@delete')->name('species.delete');
+Route::delete('species/{species}','SpeciesController@delete')->name('species.delete');
 
 

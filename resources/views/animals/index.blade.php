@@ -8,39 +8,37 @@
 </head>
 <body>
     <h1>Animales</h1>
-    <!--<a href="{{ route('animals.create') }}">
-    Crear un nuevo  zoologico-->
+    <a href="{{ route('animals.create') }}">
+    Crear un nuevo  animal
     </a>
     <table>
         <thead>
             <tr>
-                <th>Id_number</th>
-                <th>Genre</th>
-                <th>Birth_year</th>
-                <th>Country</th>
-                <th>Continent</th>
+                <th>Id</th>
+                <th>Numero de identificacion</th>
+                <th>Genero</th>
+                <th>Año de nacimiento</th>
+                <th>Pais</th>
+                <th>Continente</th>
+                <th>Especie</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($zoos as $zoo)
+            @foreach($animals as $item)
                 <tr>
                     <td>
                         <!--<a href="/zoos/{{ $zoo->id }}"> Otra opcion para crear un link ligado a lo que es una variable -->
-                        <a href="{{route('zoos.show',['zoo'=>$zoo]) }}">
-                    {{ $zoo->id }}
-                        </a>
+                        
+                     {{ $item->id }}  
                     </td>
-                    <td>{{ $zoo->name }}</td>
-                    <td>{{ $zoo->city }}</td>
-                    <td>{{ $zoo->country }}</td>
-                    <td>{{ $zoo->size }}</td>
-                    <td>{{ $zoo->annual_budget }}</td>
+                    <td>{{ $item->id_number }}</td>
+                    <td>{{ $item->genre }}</td>
+                    <td>{{ $item->birth_date }}</td>
+                    <td>{{ $item->country }}</td>
+                    <td>{{ $item->continent }}</td>
+                    <td>{{ $item->species->vulgar_name }}</td>
                     <td>
-                    <a href="{{route('zoos.edit',['zoo'=>$zoo]) }}">Editar </a>
-                    <form method ="POST" action="{{route('zoos.delete',['zoo'=>$zoo]) }}">
-                    @csrf 
-                    {{ method_field('DELETE') }}
-                    <input type="submit" value="Eliminar">
                     </td>
                 </tr>
             @endforeach

@@ -29,7 +29,7 @@
                     <td>
                         <!--<a href="/zoos/{{ $zoo->id }}"> Otra opcion para crear un link ligado a lo que es una variable -->
                         <a href="{{route('zoos.show',['zoo'=>$zoo]) }}">
-                    {{ $zoo->id }}
+                            {{ $zoo->id }}
                         </a>
                     </td>
                     <td>{{ $zoo->name }}</td>
@@ -38,11 +38,17 @@
                     <td>{{ $zoo->size }}</td>
                     <td>{{ $zoo->annual_budget }}</td>
                     <td>
-                    <a href="{{route('zoos.edit',['zoo'=>$zoo]) }}">Editar </a>
-                    <form method ="POST" action="{{route('zoos.delete',['zoo'=>$zoo]) }}">
-                    @csrf 
-                    {{ method_field('DELETE') }}
-                    <input type="submit" value="Eliminar">
+                        <a href="{{route('zoos.edit',['zoo'=>$zoo]) }}">
+                        Editar
+                        </a>
+                        <form method ="POST" action="{{route('zoos.delete',['zoo'=>$zoo]) }}">
+                            @csrf 
+                            {{ method_field('DELETE') }}
+                            <input type="submit" value="Eliminar">
+                        </form>
+                        <a href="{{ route('zoos.species.edit', ['zoo' => $zoo]) }}">
+                            Modificar especies
+                        </a>
                     </td>
                 </tr>
             @endforeach

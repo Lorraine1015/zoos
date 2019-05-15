@@ -18,22 +18,24 @@ class SpeciesController extends Controller
         return view('species.show',['species'=> $species]);
     }
     function store(Request $req){
-        $n = $req->input('nombre');
-        $c = $req->input('ciudad');
-        $p = $req->input('pais');
-        $t = $req->input('tamaño');
-        $pre = $req->input('presupuesto');
-        
-        $zoo=new \App\Zoo;
-        $zoo->name=$n;
-        $zoo->city=$c;
-        $zoo->country=$p;
-        $zoo->size=$t;
-        $zoo->annual_budget=$pre;
-        $zoo->save();
-        
-        return redirect()->route('zoos.index');
+        $species = $req->input('species');
+        Species::create($species);
+        return redirect()->route('species.index');
     }
-    
+    function edit(Request $req, Species $species) {
+        return view('species.edit', ['species' => $species]);
+    }
+    function update(Request $req, Species $species) {
+        $species->vulgar_name = $req->input('species.vulgar_name');
+        $species->scientific_name = $req->input('species.scientific_name');
+        $species->family = $req->input('species.family');
+        $species->is_on_danger = $req->input('species.is_on_danger');
+        $species->save();
+        return redirect()->route('species.show', ['species' => $species]);
+    }
+    function delete(Request $req, Species $species) {
+        $species->delete();
+        return redirect()->route('species.index');
+    }
     
 }

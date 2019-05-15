@@ -7,17 +7,17 @@
     <meta name="author" content="">
 </head>
 <body>
-    <h1>Una nueva pagina</h1>
+    <h1>Nueva especie</h1>
     <form method="POST" action="{{route('species.store')}}">
         @csrf
         <p> Nombre vulgar </p>
-        <input type="text" name="nombre" value="">
+        <input type="text" name="species[vulgar_name]" value="">
         <p> Nombre cientifico </p>
-        <input type="text" name="nombre_scien" value="">
+        <input type="text" name="species[scientific_name]" value="">
         <p> Family </p>
-        <input type="text" name="familia" value="">
+        <input type="text" name="species[family]" value="">
         <p> Peligro de extincion </p>
-        <input type="boolean" name="peligro" value="">
+        <input type="text" name="species[is_on_danger]" value="">
         <p> </p>
         <input type="submit">
     </form>

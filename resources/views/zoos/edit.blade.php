@@ -12,15 +12,15 @@
         @csrf
         {{method_field('PUT')}}
         <p> Nombre </p>
-        <input type="text" name="nombre" value="{{$zoo->name}}">
+        <input type="text" name="zoo[name]" value="{{$zoo->name}}">
         <p> Ciudad </p>
-        <input type="text" name="ciudad" value="{{$zoo->city}}">
+        <input type="text" name="zoo[city]" value="{{$zoo->city}}">
         <p> País </p>
-        <input type="text" name="pais" value="{{$zoo->country}}">
+        <input type="text" name="zoo[country]" value="{{$zoo->country}}">
         <p> Tamaño </p>
-        <input type="text" name="tamaño" value="{{$zoo->size}}">
+        <input type="text" name="zoo[size]" value="{{$zoo->size}}">
         <p> Presupuesto </p>
-        <input type="text" name="presupuesto" value="{{$zoo->annual_budget}}">
+        <input type="text" name="zoo[annual_budget]" value="{{$zoo->annual_budget}}">
         <p> </p>
         <input type="submit" value="Editar">
     </form>
